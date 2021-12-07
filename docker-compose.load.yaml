@@ -1,0 +1,22 @@
+version: '3'
+services:
+  neo4j-load:
+    image: neo4j:latest
+    hostname: neo4j
+    container_name: neo4j_paradise_papers
+    stdin_open: true
+    tty: true 
+    command: neo4j-admin load --from /import/icij-paradise-papers-43.dump --force
+    restart: always
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    volumes:
+      - neo4j_paradise_papers-data:/data
+      - neo4j_paradise_papers-plugins:/plugins
+      - ./import:/import
+volumes:
+  neo4j_paradise_papers-data:
+  neo4j_paradise_papers-plugins:
