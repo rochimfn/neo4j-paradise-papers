@@ -30,6 +30,8 @@ docker-compose up -d
 
 neo4j server will be available in port `7687` (server) and `7474` (client)
 
+> May take longer time on first start due to downloading plugins
+
 5. Done
 
 Use the following command to stop the container
